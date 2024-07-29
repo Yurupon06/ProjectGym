@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('category_name', 255)->unique();
             $table->string('type');
-            $table->string('cycle');
+            $table->integer('cycle');
             $table->timestamps();
         });
     }

@@ -19,7 +19,7 @@
         <li class="nav-item">
           <a class="nav-link text-white {{ request()->is('productcategories') ? 'active' : '' }}" href="{{ route('productcategories.index') }}">
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="material-icons opacity-10">table_view</i>
+                  <i class="material-icons opacity-10">category</i>
               </div>
               <span class="nav-link-text ms-1">Product Category</span>
           </a>
@@ -27,7 +27,7 @@
         <li class="nav-item">
           <a class="nav-link text-white " href="../../pages/billing.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">receipt_long</i>
+              <i class="material-icons opacity-10">inventory_2</i>
             </div>
             <span class="nav-link-text ms-1">Product</span>
           </a>
@@ -35,7 +35,7 @@
         <li class="nav-item">
           <a class="nav-link text-white " href="../../pages/virtual-reality.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">view_in_ar</i>
+              <i class="material-icons opacity-10">groups</i>
             </div>
             <span class="nav-link-text ms-1">Member</span>
           </a>
@@ -43,7 +43,7 @@
         <li class="nav-item">
           <a class="nav-link text-white " href="../../pages/rtl.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
+              <i class="material-icons opacity-10">receipt_long</i>
             </div>
             <span class="nav-link-text ms-1">Order</span>
           </a>
@@ -51,9 +51,17 @@
         <li class="nav-item">
           <a class="nav-link text-white " href="../../pages/notifications.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">notifications</i>
+              <i class="material-icons opacity-10">payments</i>
             </div>
             <span class="nav-link-text ms-1">Payment</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white " href="../../pages/notifications.html">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">person</i>
+            </div>
+            <span class="nav-link-text ms-1">User</span>
           </a>
         </li>
         
