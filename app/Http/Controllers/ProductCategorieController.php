@@ -12,8 +12,8 @@ class ProductCategorieController extends Controller
      */
     public function index()
     {
-        //
-        return view('productcategories.index');
+        $categories = Product_categorie::all();
+        return view('productcategories.index', compact('categories'));
     }
 
     /**
@@ -21,7 +21,7 @@ class ProductCategorieController extends Controller
      */
     public function create()
     {
-        //
+        return view('productcategories.create');
     }
 
     /**
@@ -29,7 +29,15 @@ class ProductCategorieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'category_name' => 'required|string|max:255',
+        ]);
+
+        Product_Categorie::create([
+            'category_name' => $request->category_name,
+        ]);
+
+        return redirect()->route('productcategories.index')->with('success', 'Product category added successfully.');
     }
 
     /**
@@ -43,24 +51,38 @@ class ProductCategorieController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product_categorie $product_categorie)
+    public function edit($id)
     {
-        //
+        $category = Product_categorie::findOrFail($id);
+        return view('productcategories.edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product_categorie $product_categorie)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'category_name' => 'required|string|max:255',
+        ]);
+
+        $category = Product_categorie::findOrFail($id);
+        $category->update([
+            'category_name' => $request->category_name,
+        ]);
+
+        return redirect()->route('productcategories.index')->with('success', 'Product category updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product_categorie $product_categorie)
+    public function destroy($id)
     {
-        //
+        $category = Product_categorie::findOrFail($id);
+
+        $category->delete();
+        
+        return redirect()->route('productcategories.index')->with('success', 'Product category deleted successfully.');
     }
 }
