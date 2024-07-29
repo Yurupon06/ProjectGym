@@ -10,11 +10,15 @@ class Customer extends Model
     use HasFactory;
     protected $table = 'customers';
     protected $fillable = [
-        'name',
-        'email',	
-        'password',
-        'phone',	
+        'user_id',
+        'phone',
         'born',	
-        'jk',	
+        'gender',	
+        'qr_token',	
     ];
+
+    public function user(){
+        return $this->belongsTo(Product_categorie::class, 'user_id');
+    }
+    
 }
