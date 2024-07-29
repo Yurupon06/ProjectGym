@@ -9,3 +9,4 @@ Route::get('/', function () {
 
 Route::resource('dashboard', \App\Http\Controllers\DashboardController::class);
 Route::resource('productcategories', \App\Http\Controllers\ProductCategorieController::class);
+Route::resource('product', \App\Http\Controllers\ProductController::class);

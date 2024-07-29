@@ -25,7 +25,7 @@
               <i class="material-icons opacity-10">person</i>
             </div>
             <div class="text-end pt-1">
-              <p class="text-sm mb-0 text-capitalize">Today's Users</p>
+              <p class="text-sm mb-0 text-cap italize">Today's Users</p>
               <h4 class="mb-0">2,300</h4>
             </div>
           </div>

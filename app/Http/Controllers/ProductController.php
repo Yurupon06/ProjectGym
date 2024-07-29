@@ -12,7 +12,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::all(); 
+        return view('product.index', compact('products')); 
     }
 
     /**
@@ -20,7 +21,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $products = Product::all(); 
+        return view('product.create', compact('products')); 
     }
 
     /**
@@ -28,38 +30,62 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'product_category_id' => 'required|integer|exists:product_categories,id', // Adjust based on your category table
+            'product_name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'price' => 'required|numeric|min:0',
+        ]);
+        $product = new Product();
+        $product->product_category_id = $validatedData['product_category_id'];
+        $product->product_name = $validatedData['product_name'];
+        $product->description = $validatedData['description'];
+        $product->price = $validatedData['price'];
+        $product->save();
+        return redirect()->route('product.index')->with('success', 'Product added successfully!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        //
+        $product = Product::findOrFail($id); 
+        return view('product.show', compact('products')); 
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $product = Product::findOrFail($id); 
+        return view('product.edit', compact('products')); 
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'product_category_id' => 'required|integer|exists:product_categories,id',
+            'product_name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'price' => 'required|numeric|min:0',
+        ]);
+        $product = Product::findOrFail($id);
+        $product->update($validatedData);
+        return redirect()->route('product.index')->with('success', 'Product updated successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        $product = Product::findOrFail($id); 
+        $product->delete(); 
+        return redirect()->route('product.index')->with('success', 'Product deleted successfully!');
     }
 }
