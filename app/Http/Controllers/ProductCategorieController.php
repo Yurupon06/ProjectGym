@@ -12,10 +12,12 @@ class ProductCategorieController extends Controller
      */
     public function index()
     {
+
         //
         return view('productcategories.index', [
             'productcat' => product_categorie::all()
         ]);
+
     }
 
     /**
@@ -24,6 +26,7 @@ class ProductCategorieController extends Controller
     public function create()
     {
         //
+
         return view('productcategories.create');
     }
 
@@ -47,6 +50,7 @@ class ProductCategorieController extends Controller
         $productcat->save();
     
         return redirect()->route('productcategories.index')->with('success', 'productcat created successfully.');
+
     }
 
     /**
@@ -65,6 +69,7 @@ class ProductCategorieController extends Controller
         //
         $productcat = Product_categorie::findOrFail($id);
         return view('productcategories.edit', compact('productcat'));
+
     }
 
     /**
@@ -87,6 +92,7 @@ class ProductCategorieController extends Controller
         $productcat->save();
     
         return redirect()->route('productcategories.index')->with('success', 'productcat created successfully.');
+
     }
 
     /**
@@ -98,5 +104,6 @@ class ProductCategorieController extends Controller
         $productcat = Product_categorie::findOrFail($id);
         $productcat->delete();
         return redirect()->route('productcategories.index')->with('success', 'productcat berhasil dihapus.');
+
     }
 }
