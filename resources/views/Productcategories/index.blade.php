@@ -1,14 +1,18 @@
 @extends('dashboard.master')
+
 @section('title', 'Product Categories')
+
 @section('sidebar')
     @include('dashboard.sidebar')
 @endsection
+
 @section('page-title', 'Product Categories')
 @section('page', 'ProductCategories')
+
 @section('main')
     @include('dashboard.main')
 
-      <div class="container-fluid py-4">
+    <div class="container-fluid py-4">
         <div class="row">
           <div class="col-12">
             <div class="card my-4">
@@ -65,8 +69,6 @@
                   </div>
                 </div>
             </div>
-          </div>
         </div>
-      </div>
-
+    </div>
 @endsection
