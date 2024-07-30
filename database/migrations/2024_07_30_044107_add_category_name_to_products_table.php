@@ -12,14 +12,14 @@ return new class extends Migration
     public function up()
 {
     Schema::table('products', function (Blueprint $table) {
-        $table->string('category_name')->nullable(); // Menambahkan kolom
+        $table->string('category_name')->nullable(); 
     });
 }
 
 public function down()
 {
     Schema::table('products', function (Blueprint $table) {
-        $table->dropColumn('category_name'); // Menghapus kolom
+        $table->dropColumn('category_name'); 
     });
 }
 
