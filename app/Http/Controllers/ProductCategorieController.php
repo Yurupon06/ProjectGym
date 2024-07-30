@@ -86,7 +86,7 @@ class ProductCategorieController extends Controller
         $productcat->cycle = $request->cycle;
         $productcat->save();
     
-        return redirect()->route('productcategories.index')->with('success', 'productcat created successfully.');
+        return redirect()->route('productcategories.index')->with('success', 'productcat created successfully!.');
     }
 
     /**
@@ -97,6 +97,6 @@ class ProductCategorieController extends Controller
         //
         $productcat = Product_categorie::findOrFail($id);
         $productcat->delete();
-        return redirect()->route('productcategories.index')->with('success', 'productcat berhasil dihapus.');
+        return redirect()->route('productcategories.index')->with('success', 'Product Categories deleted successfully!.');
     }
 }
